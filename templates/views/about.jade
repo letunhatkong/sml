@@ -1,0 +1,14 @@
+extends ../layouts/default
+
+block content
+	if !data.about
+		h2(style="text-align:center") Invalid About.
+	else
+		div(id="about-banner-container", class="row")
+			div(class="col-xs-12 col-sm-12 top-banner-about")
+				img(src=data.about._.banner.fit(1140,594))
+				div(class="about-top-text-banner")
+					h1 WE ARE
+					h1 "START MODEL LIFE"
+		.about
+			!= data.about.content.full
