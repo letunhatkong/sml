@@ -1,0 +1,37 @@
+extends ../layouts/default
+
+block content
+	div(class="main-container col1-layout")
+		div(id="timeline-banner-blog", class="row")
+			.blog
+				h2= data.blog.title
+				p(style="font-style: italic")
+					| by #{data.blog.author} • #{data.blog._.publishedDate.format('MMMM-DD-YYYY')} 
+				!= data.blog.content.full
+			div(class="blog-icon-bottom")
+				a(href="") 
+					img(src='/images/facebook-icon-gray.PNG')
+				a(href="") 
+					img(src='/images/twitter-icon-gray.PNG')
+			div(class="blog-may-like")
+				p Other articles you may like: 
+				div(class="blog-may-like-left")
+					a(href="") 
+						p Surfer Girls of Lookbook
+					a(href="") 
+						p The Unencumbered Life
+					a(href="") 
+						p 3 Ways to Style Your Bomber Jacket
+					a(href="") 
+						p Dance The Way You Feel
+				div(class="blog-may-like-right")
+					a(href="") 
+						p Surfer Girls of Lookbook
+					a(href="") 
+						p The Unencumbered Life
+					a(href="") 
+						p 3 Ways to Style Your Bomber Jacket
+					a(href="") 
+						p Dance The Way You Feel
+	
+		
