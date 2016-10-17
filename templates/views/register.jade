@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block intro
+	.container
+		h1 Register
+		
+block content
+	.container
+		if enquirySubmitted
+			h3 Thanks for register.
+		else
+			.row: .col-sm-8.col-md-6
+				form(method='post')
+					input(type='hidden', name='action', value='register')
+					.form-group(class=validationErrors.name ? 'has-error' : null)
+						label Name
+						input(type='text', name='name.full', value=formData['name.full']).form-control
+					.form-group(class=validationErrors.email ? 'has-error' : null)
+						label Email
+						input(type='email', name='email', value=formData.email).form-control
+					.form-group
+						label Password
+						input(type='password', name='password', value=formData.password).form-control
+					.form-group
+						label Retype Password
+						input(type='password', name='password_confirm', value=formData.password_confirm).form-control
+					.form-actions
+						button(type='submit').btn.btn-primary Send
