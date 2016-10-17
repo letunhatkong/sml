@@ -49,3 +49,6 @@ LICENSE
 #public/
 
 updates/
+.env
+Procfile
+package.json
