@@ -7,22 +7,17 @@ var Types = keystone.Field.Types;
  */
 
 var About = new keystone.List('About', {
-	autokey: { from: 'name', path: 'key', unique: true },
+	map: { name: 'title' },
+	autokey: { from: 'title', path: 'key', unique: true }
 });
 
 About.add({
-	name: { type: String, required: true },
-	state: { type: Types.Select, options: 'enable, disable', default: 'disable', index: true },
+	title: { type: String, required: true },
+	status: { type: Types.Select, options: 'enable, disable', default: 'disable', index: true },
 	banner: { type: Types.CloudinaryImage },
-	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 800 },
-	},
+	slogan: { type: Types.Html, wysiwyg:true, height: 80 },
+	content: { type: Types.Html, wysiwyg: true, height: 800 }
 });
 
-About.schema.virtual('content.full').get(function () {
-	return this.content.extended || this.content.brief;
-});
-
-About.defaultColumns = 'name, state|20%, brief|20%, extended|40%';
+About.defaultColumns = 'title, status|20%, slogan|20%, content|40%';
 About.register();

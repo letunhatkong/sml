@@ -8,13 +8,13 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'about';
 	locals.data = {
-		abouts: [],
+		abouts: []
 	};
 
 	// Load the current about
 	view.on('init', function (next) {
 
-		var q = keystone.list('About').model.findOne({ state: 'enable' });
+		var q = keystone.list('About').model.findOne({ status: 'enable' });
 
 		q.exec(function (err, result) {
 			locals.data.about = result;

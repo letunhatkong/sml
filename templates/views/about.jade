@@ -6,9 +6,14 @@ block content
 	else
 		div(id="about-banner-container", class="row")
 			div(class="col-xs-12 col-sm-12 top-banner-about")
-				img(src=data.about._.banner.fit(1140,594))
+				img(src=data.about._.banner.fit(1140, 594))
 				div(class="about-top-text-banner")
-					h1 WE ARE
-					h1 "START MODEL LIFE"
-		.about
-			!= data.about.content.full
+					h1!= data.about.slogan
+		div(class="main-container col1-layout")
+			div(id="instagram-banner" class="row")
+				div(class="tittle-feater")
+					h3 ABOUT
+					p Start model life
+					p(class="line-under") ______
+			.about
+				!= data.about.content
